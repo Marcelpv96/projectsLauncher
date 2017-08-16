@@ -5,11 +5,9 @@ import time
 
 def sendLogos(lg_IP, lg_Pass, server_IP, proj_name):
     millis = int(round(time.time() * 1000))
-
     kml = simplekml.Kml(name="Layout")
     screen = kml.newscreenoverlay(name="FlOYBD")
-    screen.icon.href = "http://" + \
-        server_IP + ":5000/FlOYBD/static/img/propis.png?a=" + str(millis)
+    screen.icon.href = "http://"+server_IP+":5000/FlOYBD/static/img/propis.png?a=" + str(millis)
     screen.overlayxy = simplekml.OverlayXY(x=0.0, y=1.0, xunits=simplekml.Units.fraction,
                                            yunits=simplekml.Units.fraction)
     screen.screenxy = simplekml.ScreenXY(x=0.0, y=1.0, xunits=simplekml.Units.fraction,
@@ -22,8 +20,7 @@ def sendLogos(lg_IP, lg_Pass, server_IP, proj_name):
     screen.size.yunits = simplekml.Units.fraction
 
     screenName = kml.newscreenoverlay(name='App name')
-    screenName.icon.href = "http://" + \
-        server_IP + ":5000/FlOYBD/static/img/logoFlOYBD.png?a=" + \
+    screenName.icon.href = "http://"+server_IP+":5000/FlOYBD/static/img/logoFloybd.png?a=" + \
         str(millis)
     screenName.overlayxy = simplekml.OverlayXY(x=0.0, y=1.0, xunits=simplekml.Units.fraction,
                                                yunits=simplekml.Units.fraction)
@@ -37,8 +34,7 @@ def sendLogos(lg_IP, lg_Pass, server_IP, proj_name):
     screenName.size.yunits = simplekml.Units.fraction
 
     screen1 = kml.newscreenoverlay(name='Logos')
-    screen1.icon.href = "http://" + \
-        server_IP + ":5000/FlOYBD/static/img/comuns.png?a=" + str(millis)
+    screen1.icon.href = "http://"+server_IP+":5000/FlOYBD/static/img/comuns.png?a=" + str(millis)
     screen1.overlayxy = simplekml.OverlayXY(x=0.0, y=0.0, xunits=simplekml.Units.fraction,
                                             yunits=simplekml.Units.fraction)
     screen1.screenxy = simplekml.ScreenXY(x=0.0, y=0.01, xunits=simplekml.Units.fraction,
@@ -52,13 +48,15 @@ def sendLogos(lg_IP, lg_Pass, server_IP, proj_name):
 
     currentDir = os.getcwd()
     print "current dir : " + currentDir
+
+    print "http://"+server_IP+":5000/FlOYBD/static/img/comuns.png?a="
     fileName = "Layout.kml"
     dir1 = os.path.join(currentDir, "/FlOYBD/static/logos")
     print dir1
     dirPath2 = os.path.join(dir1, fileName)
     dirPathFinal = currentDir + dirPath2
     kml.save(currentDir + dirPath2)
-    command = "echo 'http://" + server_IP + ":5000/FlOYBD/static/logos/Layout.kml?a=" + str(millis) +\
+    command = "echo 'http://"+server_IP+":5000/FlOYBD/static/logos/Layout.kml?a=" + str(millis) +\
         "' | sshpass -p " + lg_Pass + " ssh lg@" + lg_IP + \
         " 'cat - > /var/www/html/kmls_4.txt'"
     os.system(command)
@@ -66,17 +64,19 @@ def sendLogos(lg_IP, lg_Pass, server_IP, proj_name):
 
 def floybd(lg_IP, lg_Pass, server_IP):
     sendLogos(str(lg_IP), 'lqgalaxy', str(server_IP), "FlOYBD")
-    #os.system('/home/lg/Desktop/lglab/gsoc17/"+proj_name+"+/+"" ')
-    return "TEST"
+    os.system('./home/lg/Desktop/lglab/gsoc17/FlOYBD/startDjango.sh')
+    return "FlOYBD\n"
 
 
 def memories(lg_IP, lg_Pass, server_IP):
-    pass
+    return "memories\n"
 
 
 def WikimediaDataProject(lg_IP, lg_pass, server_IP):
-    pass
-
+    return "WikimediaDataProject\n"
 
 def my_meteorological_station(lg_IP, lg_pass, server_IP):
-    pass
+    return "my_meteorological_station\n"
+
+def SmartAgroVisualizationTool(lg_IP, lg_pass, server_IP):
+    return "SmartAgroVisualizationTool\n"
