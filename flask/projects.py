@@ -64,19 +64,20 @@ def sendLogos(lg_IP, lg_Pass, server_IP, proj_name):
 
 def floybd(lg_IP, lg_Pass, server_IP):
     sendLogos(str(lg_IP), 'lqgalaxy', str(server_IP), "FlOYBD")
-    os.system('./home/lg/Desktop/lglab/gsoc17/FlOYBD/startDjango.sh')
-    return "FlOYBD\n"
+    os.system('bash /home/lg/Desktop/lglab/gsoc17/FlOYBD/startDjango.sh '+lg_IP)
+    return "FlOYBD"
 
 
 def memories(lg_IP, lg_Pass, server_IP):
-    return "memories\n"
+    return "memories"
 
 
 def WikimediaDataProject(lg_IP, lg_pass, server_IP):
-    return "WikimediaDataProject\n"
+   os.system('bash /home/lg/Desktop/lglab/gsoc17/WikimediaDataProject/WDLG-Start '+lg_IP)
+   return "WikimediaDataProject"
 
 def my_meteorological_station(lg_IP, lg_pass, server_IP):
-    return "my_meteorological_station\n"
+    pass
 
 def SmartAgroVisualizationTool(lg_IP, lg_pass, server_IP):
-    return "SmartAgroVisualizationTool\n"
+    pass
