@@ -1,0 +1,46 @@
+.balloonTd{
+    text-align: center;
+}
+
+.mui-appbar{
+    background-color: #162955;
+}
+
+.mui-btn--primary{
+    background-color:#4F628E;
+}
+
+.context-wrapper{
+    background-color:#FFE3AA;
+}
+
+.modal-about{
+   /* width : auto;
+    height : auto;
+    margin : 25% auto;*/
+    background-color : #7986cb;
+    -webkit-border-radius: 35px !important;
+    -moz-border-radius: 35px !important;
+    border-radius: 35px !important;
+}
+
+.modal-greetings{
+    width : 400px;
+    height : auto;
+    margin : auto;
+    background-color : #fff;
+    -webkit-border-radius: 35px !important;
+    -moz-border-radius: 35px !important;
+    border-radius: 35px !important;
+}
+
+.menuApp{
+    padding: 10px;
+    vertical-align: bottom;
+}
+
+.menuIcon:hover {
+    background-color: rgba(120, 135, 171, 0.59);
+    cursor: pointer;
+    border-radius: 50%;
+}
