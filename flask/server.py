@@ -2,27 +2,27 @@ from flask import Flask, request
 from projects import *
 app = Flask(__name__,
             static_url_path='',
-            static_folder='FlOYBD/static')
+            static_folder='logos')
 
 
-@app.route('/FlOYBD/static/img/propis.png', methods=['GET'])
+@app.route('/logos/propis_FlOYBD.png', methods=['GET'])
 def staticPropis():
-    return app.send_static_file('img/propis.png')
+    return app.send_static_file('propis_FlOYBD.png')
 
 
-@app.route('/FlOYBD/static/img/comuns.png', methods=['GET'])
+@app.route('/logos/comuns.png', methods=['GET'])
 def staticComuns():
-    return app.send_static_file('img/comuns.png')
+    return app.send_static_file('comuns.png')
 
 
-@app.route('/FlOYBD/static/img/logoFloybd.png', methods=['GET'])
+@app.route('/logos/FlOYBD.png', methods=['GET'])
 def staticLogo():
-    return app.send_static_file('img/logoFloybd.png')
+    return app.send_static_file('FlOYBD.png')
 
 
-@app.route('/FlOYBD/static/logos/Layout.kml', methods=['GET'])
+@app.route('/logos/Layout.kml', methods=['GET'])
 def staticLayout():
-    return app.send_static_file('logos/Layout.kml')
+    return app.send_static_file('Layout.kml')
 
 
 @app.route('/project', methods=['GET'])
@@ -30,7 +30,6 @@ def project():
     proj_name = request.args.get('name')
     lg_IP = request.args.get('lgip')
     server_IP = request.args.get('serverip')
-    print "ELS PARAMETRESSSSSS : "+proj_name+" "+lg_IP +" "+server_IP
     try:
         returned = proj_func[proj_name](lg_IP, 'lqgalaxy', server_IP)
         return returned
