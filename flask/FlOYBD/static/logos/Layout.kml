@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
-    <Document id="feat_5">
+    <Document id="feat_17">
         <name>Layout</name>
-        <ScreenOverlay id="feat_6">
+        <ScreenOverlay id="feat_18">
             <name>FlOYBD</name>
-            <Icon id="link_3">
-                <href>http://10.160.67.239:5000/logos/propis_FlOYBD.png?a=1502980415310</href>
+            <Icon id="link_12">
+                <href>http://10.160.67.228:5000/FlOYBD/static/img/propis.png?a=1502885237140</href>
             </Icon>
             <overlayXY x="0.0" xunits="fraction" y="1.0" yunits="fraction"/>
             <screenXY x="0.0" xunits="fraction" y="1.0" yunits="fraction"/>
             <rotationXY x="0.0" xunits="fraction" y="0.0" yunits="fraction"/>
             <size x="0.2" xunits="fraction" y="0.15" yunits="fraction"/>
         </ScreenOverlay>
-        <ScreenOverlay id="feat_7">
+        <ScreenOverlay id="feat_19">
             <name>App name</name>
-            <Icon id="link_4">
-                <href>http://10.160.67.239:5000/logos/FlOYBD.png?a=1502980415310</href>
+            <Icon id="link_13">
+                <href>http://10.160.67.228:5000/FlOYBD/static/img/logoFloybd.png?a=1502885237140</href>
             </Icon>
             <overlayXY x="0.0" xunits="fraction" y="1.0" yunits="fraction"/>
             <screenXY x="0.3" xunits="fraction" y="0.95" yunits="fraction"/>
             <rotationXY x="0.0" xunits="fraction" y="0.0" yunits="fraction"/>
             <size x="0.5" xunits="fraction" y="0.07" yunits="fraction"/>
         </ScreenOverlay>
-        <ScreenOverlay id="feat_8">
+        <ScreenOverlay id="feat_20">
             <name>Logos</name>
-            <Icon id="link_5">
-                <href>http://10.160.67.239:5000/logos/comuns.png?a=1502980415310</href>
+            <Icon id="link_14">
+                <href>http://10.160.67.228:5000/FlOYBD/static/img/comuns.png?a=1502885237140</href>
             </Icon>
             <overlayXY x="0.0" xunits="fraction" y="0.0" yunits="fraction"/>
             <screenXY x="0.0" xunits="fraction" y="0.01" yunits="fraction"/>
