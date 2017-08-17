@@ -65,7 +65,7 @@ def sendLogos(lg_IP, lg_Pass, server_IP, proj_name):
 
 def floybd(lg_IP, lg_Pass, server_IP):
     sendLogos(str(lg_IP), 'lqgalaxy', str(server_IP), "FlOYBD")
-    #os.system('bash /home/lg/Desktop/lglab/gsoc17/FlOYBD/startDjango.sh ' + lg_IP)
+    os.system('bash /home/lg/Desktop/lglab/gsoc17/FlOYBD/startDjango.sh ' + lg_IP)
     return "FlOYBD"
 
 

@@ -5,24 +5,14 @@ app = Flask(__name__,
             static_folder='logos')
 
 
-@app.route('/logos/propis_FlOYBD.png', methods=['GET'])
-def staticPropis():
-    return app.send_static_file('propis_FlOYBD.png')
+@app.route("/logos/<logo_name>")
+def logos(logo_name):
+    return app.send_static_file(logo_name)
 
 
-@app.route('/logos/comuns.png', methods=['GET'])
-def staticComuns():
-    return app.send_static_file('comuns.png')
-
-
-@app.route('/logos/FlOYBD.png', methods=['GET'])
-def staticLogo():
-    return app.send_static_file('FlOYBD.png')
-
-
-@app.route('/logos/Layout.kml', methods=['GET'])
-def staticLayout():
-    return app.send_static_file('Layout.kml')
+@app.route("/webhook")
+def webhook():
+    pass
 
 
 @app.route('/project', methods=['GET'])
