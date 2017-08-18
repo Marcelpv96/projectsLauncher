@@ -81,7 +81,7 @@ def floybd(lg_IP, lg_Pass, server_IP):
 
 
 def memories(lg_IP, lg_Pass, server_IP):
-    sendLogos(str(lg_IP), 'lqgalaxy', str(server_IP), "memories")
+    sendLogos(str(lg_IP), 'lqgalaxy', str(server_IP), "memories",xPropi=0.35,yPropi=0.08,xAgraiments=0.30,yAgraiments=0.08)
     return "memories"
 
 
