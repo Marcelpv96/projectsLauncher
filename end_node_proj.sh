@@ -1,4 +1,5 @@
 #!/bin/bash
+kill -9 $(lsof -i:3000)
 for i in `seq 1 7`;
        do
                 kmlfile=kmls_$i.txt

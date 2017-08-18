@@ -1,0 +1,1 @@
+http://10.160.67.228:8000/static/utils/empty_file.kml

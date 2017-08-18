@@ -1,9 +1,8 @@
 import os
 import simplekml
 import time
-
-
-def sendLogos(lg_IP, lg_Pass, server_IP, proj_name):
+import subprocess
+def sendLogos(lg_IP, lg_Pass, server_IP, proj_name,xPropi=0.35,yPropi=0.10,xAgraiments=0.30,yAgraiments=0.1):
     millis = int(round(time.time() * 1000))
     kml = simplekml.Kml(name="Layout")
     screen = kml.newscreenoverlay(name="FlOYBD")
@@ -15,8 +14,8 @@ def sendLogos(lg_IP, lg_Pass, server_IP, proj_name):
                                          yunits=simplekml.Units.fraction)
     screen.rotationxy = simplekml.RotationXY(x=0.0, y=0.0, xunits=simplekml.Units.fraction,
                                              yunits=simplekml.Units.fraction)
-    screen.size.x = 0.20
-    screen.size.y = 0.15
+    screen.size.x = xAgraiments
+    screen.size.y = yAgraiments
     screen.size.xunits = simplekml.Units.fraction
     screen.size.yunits = simplekml.Units.fraction
 
@@ -25,12 +24,12 @@ def sendLogos(lg_IP, lg_Pass, server_IP, proj_name):
         str(millis)
     screenName.overlayxy = simplekml.OverlayXY(x=0.0, y=1.0, xunits=simplekml.Units.fraction,
                                                yunits=simplekml.Units.fraction)
-    screenName.screenxy = simplekml.ScreenXY(x=0.3, y=0.95, xunits=simplekml.Units.fraction,
+    screenName.screenxy = simplekml.ScreenXY(x=0.5, y=0.95, xunits=simplekml.Units.fraction,
                                              yunits=simplekml.Units.fraction)
     screenName.rotationxy = simplekml.RotationXY(x=0.0, y=0.0, xunits=simplekml.Units.fraction,
                                                  yunits=simplekml.Units.fraction)
-    screenName.size.x = 0.50
-    screenName.size.y = 0.07
+    screenName.size.x = xPropi  
+    screenName.size.y = yPropi
     screenName.size.xunits = simplekml.Units.fraction
     screenName.size.yunits = simplekml.Units.fraction
 
@@ -57,14 +56,26 @@ def sendLogos(lg_IP, lg_Pass, server_IP, proj_name):
     dirPath2 = os.path.join(dir1, fileName)
     dirPathFinal = currentDir + dirPath2
     kml.save(currentDir + dirPath2)
+
+    getLeftScreenCommand = "sshpass -p " + lg_Pass + " ssh lg@" + lg_IP + \
+                                  " 'head -n 1 personavars.txt | cut -c17-19'"
+    leftScreenDirty = subprocess.check_output(getLeftScreenCommand, stderr=subprocess.STDOUT, shell=True)
+    leftScreenClean = leftScreenDirty.rstrip().decode("utf-8")
+    leftScreenNumber = leftScreenClean[-1:]
+    #leftScreenNumber = "4"
+    
+    print leftScreenNumber
     command = "echo 'http://" + server_IP + ":5000/logos/Layout.kml?a=" + str(millis) +\
         "' | sshpass -p " + lg_Pass + " ssh lg@" + lg_IP + \
-        " 'cat - > /var/www/html/kmls_4.txt'"
-    os.system(command)
+        " 'cat - > /var/www/html/kmls_"+leftScreenNumber+".txt' "
+    #command = "echo 'abc' > /tmp/a.txt"
+    print command
+    subprocess.Popen(command, shell=True)
+    print 'y'
 
 
 def floybd(lg_IP, lg_Pass, server_IP):
-    sendLogos(str(lg_IP), 'lqgalaxy', str(server_IP), "FlOYBD")
+    sendLogos(str(lg_IP), 'lqgalaxy', str(server_IP), "FlOYBD",xPropi=0.50,yPropi=0.07,xAgraiments=0.20,yAgraiments=0.15)
     os.system('bash /home/lg/Desktop/lglab/gsoc17/FlOYBD/startDjango.sh ' + lg_IP)
     return "FlOYBD"
 
@@ -76,14 +87,15 @@ def memories(lg_IP, lg_Pass, server_IP):
 
 def WikimediaDataProject(lg_IP, lg_pass, server_IP):
     sendLogos(str(lg_IP), 'lqgalaxy', str(server_IP), "WikimediaDataProject")
-    os.system(
-        'bash /home/lg/Desktop/lglab/gsoc17/WikimediaDataProject/WDLG-Start ' + lg_IP)
+    subprocess.Popen(
+        'bash /home/lg/Desktop/lglab/gsoc17/WikimediaDataProject/WDLG-Start ' + lg_IP, shell=True)
     return "WikimediaDataProject"
 
 
 def my_meteorological_station(lg_IP, lg_pass, server_IP):
     sendLogos(str(lg_IP), 'lqgalaxy', str(
-        server_IP), "my_meteorological_station")
+        server_IP), "my_meteorological_station",xPropi=0.35,yPropi=0.10,xAgraiments=0.30,yAgraiments=0.15)
+    os.system("bash /home/lg/Desktop/lglab/gsoc17/my-meteorological-station/run.sh")
     return "my_meteorological_station"
 
 

@@ -1,0 +1,17 @@
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+
+> my-meteorological-station@0.0.1 start /home/lg/Desktop/lglab/gsoc17/my-meteorological-station
+> node app.js
+
+listening on *:3000
+Killed
+npm ERR! code ELIFECYCLE
+npm ERR! errno 137
+npm ERR! my-meteorological-station@0.0.1 start: `node app.js`
+npm ERR! Exit status 137
+npm ERR! 
+npm ERR! Failed at the my-meteorological-station@0.0.1 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/lg/.npm/_logs/2017-08-18T11_23_32_016Z-debug.log
