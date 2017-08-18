@@ -76,7 +76,7 @@ def sendLogos(lg_IP, lg_Pass, server_IP, proj_name,xPropi=0.35,yPropi=0.10,xAgra
 
 def floybd(lg_IP, lg_Pass, server_IP):
     sendLogos(str(lg_IP), 'lqgalaxy', str(server_IP), "FlOYBD",xPropi=0.50,yPropi=0.07,xAgraiments=0.20,yAgraiments=0.15)
-    os.system('bash /home/lg/Desktop/lglab/gsoc17/FlOYBD/startDjango.sh ' + lg_IP)
+    subprocess.Popen('bash /home/lg/Desktop/lglab/gsoc17/FlOYBD/startDjango.sh ' + lg_IP, shell=True)
     return "FlOYBD"
 
 
@@ -95,7 +95,7 @@ def WikimediaDataProject(lg_IP, lg_pass, server_IP):
 def my_meteorological_station(lg_IP, lg_pass, server_IP):
     sendLogos(str(lg_IP), 'lqgalaxy', str(
         server_IP), "my_meteorological_station",xPropi=0.35,yPropi=0.10,xAgraiments=0.30,yAgraiments=0.15)
-    os.system("bash /home/lg/Desktop/lglab/gsoc17/my-meteorological-station/run.sh")
+    subprocess.Popen("bash /home/lg/Desktop/lglab/gsoc17/my-meteorological-station/run.sh", shell=True)
     return "my_meteorological_station"
 
 
