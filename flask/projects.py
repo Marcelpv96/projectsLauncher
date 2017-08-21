@@ -2,7 +2,9 @@ import os
 import simplekml
 import time
 import subprocess
-def sendLogos(lg_IP, lg_Pass, server_IP, proj_name,xPropi=0.35,yPropi=0.10,xAgraiments=0.30,yAgraiments=0.1):
+
+
+def sendLogos(lg_IP, lg_Pass, server_IP, proj_name, xPropi=0.35, yPropi=0.10, xAgraiments=0.30, yAgraiments=0.1):
     millis = int(round(time.time() * 1000))
     kml = simplekml.Kml(name="Layout")
     screen = kml.newscreenoverlay(name="FlOYBD")
@@ -28,7 +30,7 @@ def sendLogos(lg_IP, lg_Pass, server_IP, proj_name,xPropi=0.35,yPropi=0.10,xAgra
                                              yunits=simplekml.Units.fraction)
     screenName.rotationxy = simplekml.RotationXY(x=0.0, y=0.0, xunits=simplekml.Units.fraction,
                                                  yunits=simplekml.Units.fraction)
-    screenName.size.x = xPropi  
+    screenName.size.x = xPropi
     screenName.size.y = yPropi
     screenName.size.xunits = simplekml.Units.fraction
     screenName.size.yunits = simplekml.Units.fraction
@@ -58,16 +60,17 @@ def sendLogos(lg_IP, lg_Pass, server_IP, proj_name,xPropi=0.35,yPropi=0.10,xAgra
     kml.save(currentDir + dirPath2)
 
     getLeftScreenCommand = "sshpass -p " + lg_Pass + " ssh lg@" + lg_IP + \
-                                  " 'head -n 1 personavars.txt | cut -c17-19'"
-    leftScreenDirty = subprocess.check_output(getLeftScreenCommand, stderr=subprocess.STDOUT, shell=True)
+        " 'head -n 1 personavars.txt | cut -c17-19'"
+    leftScreenDirty = subprocess.check_output(
+        getLeftScreenCommand, stderr=subprocess.STDOUT, shell=True)
     leftScreenClean = leftScreenDirty.rstrip().decode("utf-8")
     leftScreenNumber = leftScreenClean[-1:]
     #leftScreenNumber = "4"
-    
+
     print leftScreenNumber
     command = "echo 'http://" + server_IP + ":5000/logos/Layout.kml?a=" + str(millis) +\
         "' | sshpass -p " + lg_Pass + " ssh lg@" + lg_IP + \
-        " 'cat - > /var/www/html/kmls_"+leftScreenNumber+".txt' "
+        " 'cat - > /var/www/html/kmls_" + leftScreenNumber + ".txt' "
     #command = "echo 'abc' > /tmp/a.txt"
     print command
     subprocess.Popen(command, shell=True)
@@ -75,13 +78,16 @@ def sendLogos(lg_IP, lg_Pass, server_IP, proj_name,xPropi=0.35,yPropi=0.10,xAgra
 
 
 def floybd(lg_IP, lg_Pass, server_IP):
-    sendLogos(str(lg_IP), 'lqgalaxy', str(server_IP), "FlOYBD",xPropi=0.50,yPropi=0.07,xAgraiments=0.20,yAgraiments=0.15)
-    subprocess.Popen('bash /home/lg/Desktop/lglab/gsoc17/FlOYBD/startDjango.sh ' + lg_IP, shell=True)
+    sendLogos(str(lg_IP), 'lqgalaxy', str(server_IP), "FlOYBD",
+              xPropi=0.50, yPropi=0.07, xAgraiments=0.20, yAgraiments=0.15)
+    subprocess.Popen(
+        'bash /home/lg/Desktop/lglab/gsoc17/FlOYBD/startDjango.sh ' + lg_IP, shell=True)
     return "FlOYBD"
 
 
 def memories(lg_IP, lg_Pass, server_IP):
-    sendLogos(str(lg_IP), 'lqgalaxy', str(server_IP), "memories",xPropi=0.35,yPropi=0.08,xAgraiments=0.30,yAgraiments=0.08)
+    sendLogos(str(lg_IP), 'lqgalaxy', str(server_IP), "memories",
+              xPropi=0.35, yPropi=0.08, xAgraiments=0.30, yAgraiments=0.08)
     return "memories"
 
 
@@ -94,13 +100,15 @@ def WikimediaDataProject(lg_IP, lg_pass, server_IP):
 
 def my_meteorological_station(lg_IP, lg_pass, server_IP):
     sendLogos(str(lg_IP), 'lqgalaxy', str(
-        server_IP), "my_meteorological_station",xPropi=0.35,yPropi=0.10,xAgraiments=0.30,yAgraiments=0.15)
-    subprocess.Popen("bash /home/lg/Desktop/lglab/gsoc17/my-meteorological-station/run.sh", shell=True)
+        server_IP), "my_meteorological_station", xPropi=0.35, yPropi=0.10, xAgraiments=0.30, yAgraiments=0.15)
+    subprocess.Popen(
+        "bash /home/lg/Desktop/lglab/gsoc17/my-meteorological-station/run.sh", shell=True)
     return "my_meteorological_station"
 
 
 def SmartAgroVisualizationTool(lg_IP, lg_pass, server_IP):
     sendLogos(str(lg_IP), 'lqgalaxy', str(
         server_IP), "SmartAgroVisualizationTool")
-    subprocess.Popen("bash /home/lg/Desktop/lglab/gsoc17/SAVT-Dashboard/run.sh", shell=True)
+    subprocess.Popen(
+        "bash /home/lg/Desktop/lglab/gsoc17/SAVT-Dashboard/run.sh", shell=True)
     return "SmartAgroVisualizationTool"
