@@ -1,15 +1,30 @@
-WikimediaDataProject_demos = {'main': '/try_demo',
-                              'lleida': '/start_lleida_tour',
-                              'bayern': '/start_bayern_tour'}
 
-floybd_demos = {'gtfs': '/launchdemogtfs',
-                'LastWeekEarthquakes': '/demoLastWeekEarthquakes',
-                'LastWeekEarthquakesHeatmap': '/LastWeekEarthquakesHeatmap',
-                'dummyWeather': '/dummyWeather',
-                'currentWeather': '/currentWeather'}
+import subprocess
 
-proj_demos = {'floybd': floybd_demos,
-              'memories': {},
-              'WikimediaDataProject': WikimediaDataProject_demos,
-              'my_meteorological_station': {},
-              'SmartAgroVisualizationTool': {}}
+link = subprocess.Popen(
+    "ifconfig | grep 'inet addr:10' | awk '{print $2}'| cut -d ':' -f 2", shell=True)
+
+
+def floybd_demo(tour):
+    port = ":8000"
+    subprocess.Popen(link + port + tour, shell=True)
+
+
+def memories_demo():
+    pass
+
+
+def WikimediaDataProject_demo(tour):
+    port = ":8000"
+    print link + tour
+    subprocess.Popen(link + port + "/try_demo", shell=True)
+    time.sleep(2)
+    subprocess.Popen(link + port + tour, shell=True)
+
+
+def my_meteorological_station_demo():
+    pass
+
+
+def SmartAgroVisualizationTool_demo():
+    pass
