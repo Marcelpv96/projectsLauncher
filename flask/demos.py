@@ -34,7 +34,7 @@ def WikimediaDataProject_demo(tour):
     proces.communicate()
     print link + tour
     subprocess.Popen(link + tour, shell=True)
-    return "Ok, now ,Wiki media data project, demo is launching."
+    return "Ok, now ,Wiki media data project, demo is launched."
 
 
 def my_meteorological_station_demo():
@@ -43,11 +43,16 @@ def my_meteorological_station_demo():
 
 def SmartAgroVisualizationTool_demo():
     link = "curl -X POST" + ip + ":3003" + "/demos/sensors"
-    return "Ok, now SAVT memories, demo is launching."
+    return "Ok, now SAVT , demo is launching."
 
 
 def StopTour(tour):
     command = "echo 'exittour=true' | sshpass -p lqgalaxy ssh lg@" + \
         lg_ip + " 'cat - > /tmp/query.txt'"
-    subprocess.Popen(command, shell=True)
-    return "Ok, now demo is stopping."
+    p1 = subprocess.Popen(command, shell=True)
+    p1.communicate()
+    for i in xrange(1, 7):
+        command2 = "echo '' | sshpass -p lqgalaxy ssh lg@" + lg_ip + " 'cat - > /var/www/html/kmls_" + \
+            str(i) + ".txt"
+        subprocess.Popen(command2, shell=True)
+    return "Ok, now demo is stopped."
