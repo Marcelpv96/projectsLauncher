@@ -33,7 +33,8 @@ def my_meteorological_station_demo():
 
 
 def SmartAgroVisualizationTool_demo():
-    pass
+    link = "curl -X POST" + ip + ":3003" + "/demos/sensors"
+    return ""
 
 
 def StopTour(tour):
