@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
-    <Document id="feat_5">
+    <Document id="feat_9">
         <name>Layout</name>
-        <ScreenOverlay id="feat_6">
+        <ScreenOverlay id="feat_10">
             <name>FlOYBD</name>
-            <Icon id="link_3">
-                <href>http://10.160.67.228:5000/logos/propis_SmartAgroVisualizationTool.png?a=1503398362971</href>
+            <Icon id="link_6">
+                <href>http://10.160.67.228:5000/logos/propis_WikimediaDataProject.png?a=1503400132827</href>
             </Icon>
             <overlayXY x="0.0" xunits="fraction" y="1.0" yunits="fraction"/>
             <screenXY x="0.0" xunits="fraction" y="1.0" yunits="fraction"/>
             <rotationXY x="0.0" xunits="fraction" y="0.0" yunits="fraction"/>
             <size x="0.3" xunits="fraction" y="0.1" yunits="fraction"/>
         </ScreenOverlay>
-        <ScreenOverlay id="feat_7">
+        <ScreenOverlay id="feat_11">
             <name>App name</name>
-            <Icon id="link_4">
-                <href>http://10.160.67.228:5000/logos/SmartAgroVisualizationTool.png?a=1503398362971</href>
+            <Icon id="link_7">
+                <href>http://10.160.67.228:5000/logos/WikimediaDataProject.png?a=1503400132827</href>
             </Icon>
             <overlayXY x="0.0" xunits="fraction" y="1.0" yunits="fraction"/>
             <screenXY x="0.5" xunits="fraction" y="0.95" yunits="fraction"/>
             <rotationXY x="0.0" xunits="fraction" y="0.0" yunits="fraction"/>
             <size x="0.35" xunits="fraction" y="0.1" yunits="fraction"/>
         </ScreenOverlay>
-        <ScreenOverlay id="feat_8">
+        <ScreenOverlay id="feat_12">
             <name>Logos</name>
-            <Icon id="link_5">
-                <href>http://10.160.67.228:5000/logos/comuns.png?a=1503398362971</href>
+            <Icon id="link_8">
+                <href>http://10.160.67.228:5000/logos/comuns.png?a=1503400132827</href>
             </Icon>
             <overlayXY x="0.0" xunits="fraction" y="0.0" yunits="fraction"/>
             <screenXY x="0.0" xunits="fraction" y="0.01" yunits="fraction"/>
