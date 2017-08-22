@@ -27,11 +27,9 @@ def logos(logo_name):
 def webhook():
     res = request.get_json(silent=True, force=True)
     try:
-        proj_name = res["result"]["metadata"]["intentName"]
         tour = res["result"]["parameters"]["tourType"]
-        print proj_name
         print tour
-        answer = createWebhookAnswer(proj_demos[proj_name](tour))
+        answer = createWebhookAnswer(proj_demos[tour](tour))
         answer = json.dumps(answer, indent=4)
         return make_response(answer)
     except KeyError:
@@ -59,12 +57,15 @@ proj_func = {'floybd': floybd,
              'SmartAgroVisualizationTool': SmartAgroVisualizationTool}
 
 
-proj_demos = {'floybd': floybd_demo,
+proj_demos = {'/demoLastWeekEarthquakes': floybd_demo,
+              '/launchdemogtfs': floybd_demo,
+              '/dummyWeather': floybd_demo,
+              '/start_lleida_tour': WikimediaDataProject_demo,
               'memories': memories_demo,
-              'WikimediaDataProject': WikimediaDataProject_demo,
+              '/start_bayern_tour': WikimediaDataProject_demo,
               'my_meteorological_station': my_meteorological_station_demo,
               'SmartAgroVisualizationTool': SmartAgroVisualizationTool_demo,
-              'StopTour' : StopTour}
+              'StopTour': StopTour}
 
 
 if __name__ == "__main__":
