@@ -4,7 +4,7 @@ import time
 import subprocess
 
 
-def sendLogos(lg_IP, lg_Pass, server_IP, proj_name, xPropi=0.35, yPropi=0.10, xAgraiments=0.30, yAgraiments=0.1):
+def sendLogos(lg_IP, lg_Pass, server_IP, proj_name, xPropi, yPropi, xAgraiments, yAgraiments):
     millis = int(round(time.time() * 1000))
     kml = simplekml.Kml(name="Layout")
     screen = kml.newscreenoverlay(name="FlOYBD")
@@ -70,7 +70,7 @@ def sendLogos(lg_IP, lg_Pass, server_IP, proj_name, xPropi=0.35, yPropi=0.10, xA
     print leftScreenNumber
     command = "echo 'http://" + server_IP + ":5000/logos/Layout.kml?a=" + str(millis) +\
         "' | sshpass -p " + lg_Pass + " ssh lg@" + lg_IP + \
-        " 'cat - > /var/www/html/kmls_" + leftScreenNumber + ".txt' "
+        " 'cat - > /var/www/html/kmls_"+leftScreenNumber+".txt' "
     #command = "echo 'abc' > /tmp/a.txt"
     print command
     subprocess.Popen(command, shell=True)
@@ -87,12 +87,12 @@ def floybd(lg_IP, lg_Pass, server_IP):
 
 def memories(lg_IP, lg_Pass, server_IP):
     sendLogos(str(lg_IP), 'lqgalaxy', str(server_IP), "memories",
-              xPropi=0.35, yPropi=0.08, xAgraiments=0.30, yAgraiments=0.08)
+              xPropi=0.35, yPropi=0.05, xAgraiments=0.20, yAgraiments=0.031)
     return "memories"
 
 
 def WikimediaDataProject(lg_IP, lg_pass, server_IP):
-    sendLogos(str(lg_IP), 'lqgalaxy', str(server_IP), "WikimediaDataProject")
+    sendLogos(str(lg_IP), 'lqgalaxy', str(server_IP), "WikimediaDataProject",xPropi=0.35, yPropi=0.10, xAgraiments=0.25, yAgraiments=0.1)
     subprocess.Popen(
         'bash /home/lg/Desktop/lglab/gsoc17/WikimediaDataProject/WDLG-Start ' + lg_IP, shell=True)
     return "WikimediaDataProject"
