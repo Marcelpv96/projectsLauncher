@@ -1,6 +1,10 @@
 import time
 import subprocess
 
+"""
+ip = server ip
+lg_Ip = liquid galaxy ip
+"""
 ip = ""
 lg_ip = ""
 
@@ -14,8 +18,13 @@ def floybd_demo(tour):
     return "Ok, now FlOYBD demo is launching."
 
 
-def memories_demo():
-    pass
+def memories_demo(tour):
+    millis = int(round(time.time() * 1000))
+    command = "echo 'http://" + ip + ":5000/logos/earth.kml?a=" + str(millis) +\
+        "' | sshpass -p lqgalaxy ssh lg@" + lg_ip + \
+        " 'cat - > /var/www/html/kmls.txt' "
+    subprocess.Popen(command, shell=True)
+    return "Ok, now Geographical memories, demo is launching."
 
 
 def WikimediaDataProject_demo(tour):
@@ -29,12 +38,12 @@ def WikimediaDataProject_demo(tour):
 
 
 def my_meteorological_station_demo():
-    return "Ok, now ,Wiki media data project, demo is launching."
+    pass
 
 
 def SmartAgroVisualizationTool_demo():
     link = "curl -X POST" + ip + ":3003" + "/demos/sensors"
-    return ""
+    return "Ok, now SAVT memories, demo is launching."
 
 
 def StopTour(tour):

@@ -70,7 +70,7 @@ def sendLogos(lg_IP, lg_Pass, server_IP, proj_name, xPropi, yPropi, xAgraiments,
     print leftScreenNumber
     command = "echo 'http://" + server_IP + ":5000/logos/Layout.kml?a=" + str(millis) +\
         "' | sshpass -p " + lg_Pass + " ssh lg@" + lg_IP + \
-        " 'cat - > /var/www/html/kmls_"+leftScreenNumber+".txt' "
+        " 'cat - > /var/www/html/kmls_" + leftScreenNumber + ".txt' "
     #command = "echo 'abc' > /tmp/a.txt"
     print command
     subprocess.Popen(command, shell=True)
@@ -92,7 +92,8 @@ def memories(lg_IP, lg_Pass, server_IP):
 
 
 def WikimediaDataProject(lg_IP, lg_pass, server_IP):
-    sendLogos(str(lg_IP), 'lqgalaxy', str(server_IP), "WikimediaDataProject",xPropi=0.35, yPropi=0.10, xAgraiments=0.25, yAgraiments=0.1)
+    sendLogos(str(lg_IP), 'lqgalaxy', str(server_IP), "WikimediaDataProject",
+              xPropi=0.35, yPropi=0.10, xAgraiments=0.25, yAgraiments=0.1)
     subprocess.Popen(
         'bash /home/lg/Desktop/lglab/gsoc17/WikimediaDataProject/WDLG-Start ' + lg_IP, shell=True)
     return "WikimediaDataProject"
@@ -108,7 +109,7 @@ def my_meteorological_station(lg_IP, lg_pass, server_IP):
 
 def SmartAgroVisualizationTool(lg_IP, lg_pass, server_IP, xPropi=0.27, yPropi=0.02, xAgraiments=0.3, yAgraiments=0.03):
     sendLogos(str(lg_IP), 'lqgalaxy', str(
-        server_IP), "SmartAgroVisualizationTool",xPropi=0.27, yPropi=0.17, xAgraiments=0.3, yAgraiments=0.25)
+        server_IP), "SmartAgroVisualizationTool", xPropi=0.27, yPropi=0.17, xAgraiments=0.3, yAgraiments=0.25)
     subprocess.Popen(
         "bash /home/lg/Desktop/lglab/gsoc17/SAVT-Dashboard/run.sh", shell=True)
     subprocess.Popen(
