@@ -21,8 +21,8 @@ def memories_demo():
 def WikimediaDataProject_demo(tour):
     port = ":8000"
     link = "curl " + ip + port
-    subprocess.Popen(link + "/try_demo", shell=True)
-    time.sleep(2)
+    proces = subprocess.Popen(link + "/try_demo", shell=True)
+    proces.communicate()
     print link + tour
     subprocess.Popen(link + tour, shell=True)
     return "Ok, now ,Wiki media data project, demo is launching."
