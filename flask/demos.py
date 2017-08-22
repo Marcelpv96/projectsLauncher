@@ -1,15 +1,16 @@
-
+import time
 import subprocess
 
-link = subprocess.check_output(
-    "ifconfig | grep 'inet addr:10' | awk '{print $2}'| cut -d ':' -f 2", stderr=subprocess.STDOUT,shell=True)
-
+ip = ""
+lg_ip = ""
 
 def floybd_demo(tour):
+    print " la ip es: "+ip
     port = ":8000"
-    print link + port + tour
-    subprocess.Popen("curl "+link + port + tour, shell=True)
-
+    link = "curl " +ip + port + tour
+    print link 
+    subprocess.Popen(link, shell=True)
+    return "Ok, now FlOYBD demo is launching."
 
 def memories_demo():
     pass
@@ -17,15 +18,21 @@ def memories_demo():
 
 def WikimediaDataProject_demo(tour):
     port = ":8000"
-    print link + tour
-    subprocess.Popen("curl "+link + port + "/try_demo", shell=True)
+    link = "curl " +ip + port
+    subprocess.Popen(link + "/try_demo", shell=True)
     time.sleep(2)
-    subprocess.Popen(link + port + tour, shell=True)
-
+    print link+tour
+    subprocess.Popen(link+ tour, shell=True)
+    return "Ok, now ,Wiki media data project, demo is launching."
 
 def my_meteorological_station_demo():
-    pass
+    return "Ok, now ,Wiki media data project, demo is launching."
 
 
 def SmartAgroVisualizationTool_demo():
     pass
+
+def StopTour(tour):
+    command = "echo 'exittour=true' | sshpass -p lqgalaxy ssh lg@" + lg_ip + " 'cat - > /tmp/query.txt'"
+    subprocess.Popen(command, shell=True)
+    return "Ok, now demo is stopping."
