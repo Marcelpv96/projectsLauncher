@@ -44,8 +44,12 @@ def my_meteorological_station_demo():
     pass
 
 
-def SmartAgroVisualizationTool_demo():
-    link = "curl -X POST" + ip + ":3003" + "/demos/sensors"
+def SmartAgroVisualizationTool_demo_sensors(tour):
+    link = "curl -X POST" + ip + ":3003" + "kmls/demos/sensors"
+    return "Ok, now SAVT , demo is launching."
+
+def SmartAgroVisualizationTool_demo_overlays(tour):
+    link = "curl -X POST" + ip + ":3003" + "kmls/demos/overlays"
     return "Ok, now SAVT , demo is launching."
 
 

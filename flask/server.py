@@ -60,11 +60,13 @@ proj_func = {'floybd': floybd,
 proj_demos = {'/demoLastWeekEarthquakes': floybd_demo,
               '/launchdemogtfs': floybd_demo,
               '/dummyWeather': floybd_demo,
+              '/start_barcelona92' :WikimediaDataProject_demo,
+              '/savtSensors': SmartAgroVisualizationTool_demo_sensors,
               '/start_lleida_tour': WikimediaDataProject_demo,
+              '/overlays': SmartAgroVisualizationTool_demo_overlays,
               'memories': memories_demo,
               '/start_bayern_tour': WikimediaDataProject_demo,
               'my_meteorological_station': my_meteorological_station_demo,
-              'SmartAgroVisualizationTool': SmartAgroVisualizationTool_demo,
               'StopTour': StopTour}
 
 
