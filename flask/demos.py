@@ -23,7 +23,10 @@ def memories_demo(tour):
     command = "echo 'http://" + ip + ":5000/logos/earth.kml?a=" + str(millis) +\
         "' | sshpass -p lqgalaxy ssh lg@" + lg_ip + \
         " 'cat - > /var/www/html/kmls.txt' "
-    subprocess.Popen(command, shell=True)
+    print command
+    proces = subprocess.Popen(command, shell=True)
+    proces.communicate()
+    playTour("main")
     return "Ok, now Geographical memories, demo is launching."
 
 
@@ -56,3 +59,9 @@ def StopTour(tour):
             str(i) + ".txt"
         subprocess.Popen(command2, shell=True)
     return "Ok, now demo is stopped."
+
+def playTour(tourName):
+    command = "echo 'playtour="+tourName+"' | sshpass -p lqgalaxy ssh lg@" + lg_ip + \
+              " 'cat - > /tmp/query.txt'"
+    print command
+    subprocess.Popen(command, shell=True)

@@ -5,27 +5,27 @@
         <ScreenOverlay id="feat_2">
             <name>FlOYBD</name>
             <Icon id="link_0">
-                <href>http://10.33.34.114:5000/logos/propis_WikimediaDataProject.png?a=1503416502905</href>
+                <href>http://10.160.67.228:5000/logos/propis_memories.png?a=1503476624111</href>
             </Icon>
             <overlayXY x="0.0" xunits="fraction" y="1.0" yunits="fraction"/>
             <screenXY x="0.0" xunits="fraction" y="1.0" yunits="fraction"/>
             <rotationXY x="0.0" xunits="fraction" y="0.0" yunits="fraction"/>
-            <size x="0.25" xunits="fraction" y="0.1" yunits="fraction"/>
+            <size x="0.2" xunits="fraction" y="0.031" yunits="fraction"/>
         </ScreenOverlay>
         <ScreenOverlay id="feat_3">
             <name>App name</name>
             <Icon id="link_1">
-                <href>http://10.33.34.114:5000/logos/WikimediaDataProject.png?a=1503416502905</href>
+                <href>http://10.160.67.228:5000/logos/memories.png?a=1503476624111</href>
             </Icon>
             <overlayXY x="0.0" xunits="fraction" y="1.0" yunits="fraction"/>
             <screenXY x="0.5" xunits="fraction" y="0.95" yunits="fraction"/>
             <rotationXY x="0.0" xunits="fraction" y="0.0" yunits="fraction"/>
-            <size x="0.35" xunits="fraction" y="0.1" yunits="fraction"/>
+            <size x="0.35" xunits="fraction" y="0.05" yunits="fraction"/>
         </ScreenOverlay>
         <ScreenOverlay id="feat_4">
             <name>Logos</name>
             <Icon id="link_2">
-                <href>http://10.33.34.114:5000/logos/comuns.png?a=1503416502905</href>
+                <href>http://10.160.67.228:5000/logos/comuns.png?a=1503476624111</href>
             </Icon>
             <overlayXY x="0.0" xunits="fraction" y="0.0" yunits="fraction"/>
             <screenXY x="0.0" xunits="fraction" y="0.01" yunits="fraction"/>
