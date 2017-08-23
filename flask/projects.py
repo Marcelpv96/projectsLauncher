@@ -109,7 +109,7 @@ def my_meteorological_station(lg_IP, lg_pass, server_IP):
 
 def SmartAgroVisualizationTool(lg_IP, lg_pass, server_IP):
     sendLogos(str(lg_IP), 'lqgalaxy', str(
-        server_IP), "SmartAgroVisualizationTool", xPropi=0.27, yPropi=0.10, xAgraiments=0.3, yAgraiments=0.22)
+        server_IP), "SmartAgroVisualizationTool", xPropi=0.27, yPropi=0.10, xAgraiments=0.33, yAgraiments=0.20)
     subprocess.Popen(
         "bash /home/lg/Desktop/lglab/gsoc17/SAVT-Dashboard/run.sh", shell=True)
     subprocess.Popen(

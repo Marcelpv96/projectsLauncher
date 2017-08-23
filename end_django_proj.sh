@@ -6,4 +6,4 @@ for i in `seq 1 7`;
 		kmlfile=kmls_$i.txt
 		echo "" | sshpass -p lqgalaxy ssh lg@$1 'cat - > /var/www/html/'$kmlfile
        done
-echo "" | sshpass -p lqgalaxy ssh lg@10.160.67.206 'cat - > /var/www/html/'kmls.txt
+echo "" | sshpass -p lqgalaxy ssh lg@$1 'cat - > /var/www/html/kmls.txt'
