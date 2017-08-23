@@ -45,13 +45,12 @@ def my_meteorological_station_demo():
 
 
 def SmartAgroVisualizationTool_demo_sensors(tour):
-    link = "curl -X POST" + ip + ":3003" + "kmls/demos/sensors"
+    link = "curl -X POST" + ip + ":3003" + "/kmls/demos/sensors"
     return "Ok, now SAVT , demo is launching."
 
 def SmartAgroVisualizationTool_demo_overlays(tour):
-    link = "curl -X POST" + ip + ":3003" + "kmls/demos/overlays"
+    link = "curl -X POST" + ip + ":3003" + "/kmls/demos/overlays"
     return "Ok, now SAVT , demo is launching."
-
 
 def StopTour(tour):
     command = "echo 'exittour=true' | sshpass -p lqgalaxy ssh lg@" + \
