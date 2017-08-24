@@ -46,11 +46,12 @@ def my_meteorological_station_demo():
 
 def SmartAgroVisualizationTool_demo_sensors(tour):
     link = "curl -X POST " + ip + ":3003" + "/kmls/demos/sensors"
+    subprocess.Popen(link, shell=True)
     return "Ok, now SAVT sensors, demo is launching."
 
 def SmartAgroVisualizationTool_demo_overlays(tour):
     link = "curl -X POST " + ip + ":3003" + "/kmls/demos/overlays"
-    print link
+    subprocess.Popen(link, shell=True)
     return "Ok, now SAVT overlays, demo is launching."
 
 def StopTour(tour):
@@ -65,3 +66,4 @@ def playTour(tourName):
               " 'cat - > /tmp/query.txt'"
     print command
     subprocess.Popen(command, shell=True)
+    subprocess.Popen("curl "+ip+":8000/stop_tour_demo",shell=True)

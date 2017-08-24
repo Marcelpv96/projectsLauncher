@@ -59,13 +59,16 @@ def sendLogos(lg_IP, lg_Pass, server_IP, proj_name, xPropi, yPropi, xAgraiments,
     dirPathFinal = currentDir + dirPath2
     kml.save(currentDir + dirPath2)
 
+    """
     getLeftScreenCommand = "sshpass -p " + lg_Pass + " ssh lg@" + lg_IP + \
         " 'head -n 1 personavars.txt | cut -c17-19'"
     leftScreenDirty = subprocess.check_output(
         getLeftScreenCommand, stderr=subprocess.STDOUT, shell=True)
     leftScreenClean = leftScreenDirty.rstrip().decode("utf-8")
+   
     leftScreenNumber = leftScreenClean[-1:]
-    #leftScreenNumber = "4"
+    """
+    leftScreenNumber = "4"
 
     print leftScreenNumber
     command = "echo 'http://" + server_IP + ":5000/logos/Layout.kml?a=" + str(millis) +\
@@ -92,10 +95,12 @@ def memories(lg_IP, lg_Pass, server_IP):
 
 
 def WikimediaDataProject(lg_IP, lg_pass, server_IP):
+    print "hola"
     sendLogos(str(lg_IP), 'lqgalaxy', str(server_IP), "WikimediaDataProject",
               xPropi=0.35, yPropi=0.10, xAgraiments=0.25, yAgraiments=0.1)
     subprocess.Popen(
         'bash /home/lg/Desktop/lglab/gsoc17/WikimediaDataProject/WDLG-Start ' + lg_IP, shell=True)
+    
     return "WikimediaDataProject"
 
 
@@ -109,7 +114,12 @@ def my_meteorological_station(lg_IP, lg_pass, server_IP):
 
 def SmartAgroVisualizationTool(lg_IP, lg_pass, server_IP):
     sendLogos(str(lg_IP), 'lqgalaxy', str(
-        server_IP), "SmartAgroVisualizationTool", xPropi=0.27, yPropi=0.10, xAgraiments=0.33, yAgraiments=0.20)
+        server_IP), "SmartAgroVisualizationTool", xPropi=0.32, yPropi=0.15, xAgraiments=0.33, yAgraiments=0.20)
+    comand = "mongod --dbpath /home/lg/Desktop/lglab/gsoc17/SmartAgroVisualizationTool/sensor-api/data/db/"
+    proc = subprocess.Popen(comand,shell=True)
+    
+    subprocess.Popen(
+        "bash /home/lg/Desktop/lglab/gsoc17/SmartAgroVisualizationTool/sensor-api/run.sh", shell=True)
     subprocess.Popen(
         "bash /home/lg/Desktop/lglab/gsoc17/SAVT-Dashboard/run.sh", shell=True)
     subprocess.Popen(

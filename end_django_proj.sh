@@ -7,3 +7,4 @@ for i in `seq 1 7`;
 		echo "" | sshpass -p lqgalaxy ssh lg@$1 'cat - > /var/www/html/'$kmlfile
        done
 echo "" | sshpass -p lqgalaxy ssh lg@$1 'cat - > /var/www/html/kmls.txt'
+echo 'search=" "' | sshpass -p lqgalaxy ssh lg@$1 'cat - > /tmp/query.txt'
