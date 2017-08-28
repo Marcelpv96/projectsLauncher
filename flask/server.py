@@ -1,6 +1,7 @@
 from flask import Flask, request, make_response
 from projects import *
 from demos import *
+import projects
 import demos
 import json
 import subprocess
@@ -43,6 +44,7 @@ def project():
     server_IP = request.args.get('serverip')
     demos.ip = server_IP
     demos.lg_ip = lg_IP
+    projects.lg_ip = lg_IP
     try:
         returned = proj_func[proj_name](lg_IP, 'lqgalaxy', server_IP)
         return returned

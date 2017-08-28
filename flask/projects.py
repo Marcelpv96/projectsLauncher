@@ -2,7 +2,7 @@ import os
 import simplekml
 import time
 import subprocess
-
+lg_ip = ""
 
 def sendLogos(lg_IP, lg_Pass, server_IP, proj_name, xPropi, yPropi, xAgraiments, yAgraiments):
     millis = int(round(time.time() * 1000))
@@ -119,7 +119,7 @@ def SmartAgroVisualizationTool(lg_IP, lg_pass, server_IP):
     proc = subprocess.Popen(comand,shell=True)
     
     subprocess.Popen(
-        "bash /home/lg/Desktop/lglab/gsoc17/SmartAgroVisualizationTool/sensor-api/run.sh", shell=True)
+        "bash /home/lg/Desktop/lglab/gsoc17/SmartAgroVisualizationTool/sensor-api/run.sh "+lg_ip, shell=True)
     subprocess.Popen(
         "bash /home/lg/Desktop/lglab/gsoc17/SAVT-Dashboard/run.sh", shell=True)
     subprocess.Popen(
