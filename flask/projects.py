@@ -59,7 +59,7 @@ def sendLogos(lg_IP, lg_Pass, server_IP, proj_name, xPropi, yPropi, xAgraiments,
     dirPathFinal = currentDir + dirPath2
     kml.save(currentDir + dirPath2)
 
-    """
+    
     getLeftScreenCommand = "sshpass -p " + lg_Pass + " ssh lg@" + lg_IP + \
         " 'head -n 1 personavars.txt | cut -c17-19'"
     leftScreenDirty = subprocess.check_output(
@@ -67,8 +67,7 @@ def sendLogos(lg_IP, lg_Pass, server_IP, proj_name, xPropi, yPropi, xAgraiments,
     leftScreenClean = leftScreenDirty.rstrip().decode("utf-8")
    
     leftScreenNumber = leftScreenClean[-1:]
-    """
-    leftScreenNumber = "4"
+    #leftScreenNumber = "4"
 
     print leftScreenNumber
     command = "echo 'http://" + server_IP + ":5000/logos/Layout.kml?a=" + str(millis) +\
@@ -119,9 +118,9 @@ def SmartAgroVisualizationTool(lg_IP, lg_pass, server_IP):
     proc = subprocess.Popen(comand,shell=True)
     
     subprocess.Popen(
-        "bash /home/lg/Desktop/lglab/gsoc17/SmartAgroVisualizationTool/sensor-api/run.sh "+lg_ip, shell=True)
+        "bash /home/lg/Desktop/lglab/gsoc17/SmartAgroVisualizationTool/run.sh "+lg_ip, shell=True)
     subprocess.Popen(
         "bash /home/lg/Desktop/lglab/gsoc17/SAVT-Dashboard/run.sh", shell=True)
     subprocess.Popen(
-        "bash /home/lg/Desktop/lglab/gsoc17/SmartAgroVisualizationTool/run.sh", shell=True)
+        "bash /home/lg/Desktop/lglab/gsoc17/SmartAgroVisualizationTool/sensor-api/run.sh", shell=True)
     return "SmartAgroVisualizationTool"
